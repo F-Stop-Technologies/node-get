@@ -23,7 +23,7 @@ if [ $# -eq 0 ]; then
   echo "node-get: Pseudo-Package Manager for F-Stop Linux"
   echo "Usage: node-get <command> <package>"
   echo "Commands:"
-  echo "  system-upgrade   upgrade system packages using apt upgrade"
+  echo "  system-upgrade   upgrade system packages using apt dist-upgrade (do this once a week)"
   echo "  install          install a package using apt install or flatpak install"
   echo "  remove           remove a package using apt remove or flatpak uninstall"
   echo "  add-flathub      add the Flathub repository to Flatpak"
