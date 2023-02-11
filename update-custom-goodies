@@ -9,7 +9,7 @@ sudo wget -O /fstop-python-nodefun/blog-gen.py https://raw.githubusercontent.com
 
 sudo rm -rf /fstop-python-folderimagedetection/ || echo "Image detection not installed yet, not reinstalling but installing."
 sudo git clone https://github.com/F-Stop-Technologies/yolov8-fstop /fstop-python-folderimagedetection/
-sudo wget -O /fstop-python-folderimagedetection/recognize.py https://raw.githubusercontent.com/F-Stop-Technologies/yolov8-imageobjectdetection/main/detect.py
+sudo wget -O /fstop-python-folderimagedetection/detectobjs https://raw.githubusercontent.com/F-Stop-Technologies/yolov8-imageobjectdetection/main/detectobj
 sudo wget -O /fstop-python-folderimagedetection/yolov8n.pt https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n.pt
 
 sudo apt install -y python3-torch python3-tk python3-numpy python3-torchvision
