@@ -11,11 +11,11 @@ function node-get-add-flathub {
 
 function node-get-install {
   sudo apt update
-  sudo apt install -y $1 2> /dev/null || sudo flatpak install -y $1
+  sudo apt install -y $1 2> /dev/null || sudo flatpak install -y $1 || sudo snap install $1 || echo "Package not found."
 }
 
 function node-get-remove {
-  sudo apt remove -y $1 2> /dev/null || sudo flatpak uninstall -y $1
+  sudo apt remove -y $1 2> /dev/null || sudo flatpak uninstall -y $1 || sudo snap remove $1 || echo "Package not found."
 }
 
 if [ $# -eq 0 ]; then
@@ -32,6 +32,11 @@ fi
 if [ ! "$(command -v flatpak)" ]; then
   echo "Error: flatpak not found. Installing..."
   sudo apt install flatpak -y
+fi
+
+if [ ! "$(command -v snap)" ]; then
+  echo "Error: snap not found. Installing..."
+  sudo apt install snapd -y
 fi
 
 if [ "$1" = "system-upgrade" ]; then
