@@ -25,6 +25,10 @@ function node-get-apt-remove {
   sudo apt remove -y $1
 }
 
+function node-get-apt-search {
+  sudo apt search $1
+}
+
 if [ $# -eq 0 ]; then
   echo "node-get: Pseudo-Package Manager for F-Stop Linux"
   echo "Usage: node-get <command> <package>"
@@ -32,6 +36,7 @@ if [ $# -eq 0 ]; then
   echo "  system-upgrade   upgrade system packages using apt upgrade"
   echo "  apt-add          install a package using apt install"
   echo "  apt-remove       remove a package using apt remove"
+  echo "  apt-search       search for a package using apt search"
   echo "  flatpak-add      install a flatpak app"
   echo "  flatpak-remove   remove a flatpak app"
   echo "  add-flathub      add the Flathub repository to Flatpak"
@@ -55,6 +60,8 @@ elif [ "$1" = "apt-add" ]; then
   node-get-apt-add $2
 elif [ "$1" = "apt-remove" ]; then
   node-get-apt-remove $2
+elif [ "$1" = "apt-search" ]; then
+  node-get-apt-search $2
 else
   echo "Error: Unrecognized command"
   exit 1
