@@ -3,6 +3,7 @@
 function node-get-system-upgrade {
   sudo apt update
   sudo NEEDRESTART_MODE=a apt upgrade -y
+  sudo NEEDRESTART_MODE=a apt dist-upgrade -y
 }
 
 function node-get-add-flathub {
