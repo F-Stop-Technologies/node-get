@@ -20,4 +20,8 @@
   sudo -u $USER pip3 install openai duckduckgo3 requests python-dotenv colorama --break-system-packages
   sudo -u $USER pip3 install opencv-python --break-system-packages
   sudo -u $USER pip3 install ultralytics --break-system-packages || echo "Error installing ultralytics, you won't be able to use image detection!"
+  
+  flatpak update -y # update all flatpaks
+  snap refresh # update all snaps
+  
   echo "Done!"
