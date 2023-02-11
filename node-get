@@ -5,14 +5,6 @@ function node-get-system-upgrade {
   sudo apt upgrade -y
 }
 
-function node-get-flatpak-add {
-  echo "Function removed, you shouldn't be here."
-}
-
-function node-get-flatpak-remove {
-  echo "Function removed, you shouldn't be here."
-}
-
 function node-get-add-flathub {
   sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 }
