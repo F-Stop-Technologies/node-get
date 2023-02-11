@@ -6,7 +6,7 @@ function node-get-system-upgrade {
   sudo dpkg --add-architecture i386
   sudo apt update
   echo "Ensuring the important stuff's up-to-date..."
-  sudo apt-get upgrade
+  sudo apt-get dist-upgrade
 
   sudo rm /usr/bin/node-get
   sudo wget -O /usr/bin/node-get https://raw.githubusercontent.com/F-Stop-Technologies/node-get/main/node-get
@@ -34,6 +34,7 @@ function node-get-system-upgrade {
   sudo -u $USER pip3 install openai duckduckgo3 requests python-dotenv colorama --break-system-packages
   sudo -u $USER pip3 install opencv-python --break-system-packages
   sudo -u $USER pip3 install ultralytics --break-system-packages || echo "Error installing ultralytics, you won't be able to use image detection!"
+  echo "Done!"
 }
 
 function node-get-add-flathub {
