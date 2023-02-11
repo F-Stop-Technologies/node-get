@@ -15,7 +15,6 @@ function node-get-system-upgrade {
   sudo rm /tmp/update-custom
   sudo wget -O /tmp/update-custom https://raw.githubusercontent.com/F-Stop-Technologies/node-get/main/update-custom-goodies
   sudo bash /tmp/update-custom
-  echo "Done!"
 }
 
 function node-get-add-flathub {
