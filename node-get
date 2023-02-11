@@ -31,7 +31,7 @@ function node-get-remove {
 }
 
 if [ $# -eq 0 ]; then
-  echo "node-get: Pseudo-Package Manager for F-Stop Linux"
+  echo "node-get: Package Manager Front-End for F-Stop Mint"
   echo "Usage: node-get <command> <package>"
   echo "Commands:"
   echo "  system-upgrade   upgrade system packages using apt dist-upgrade (do this once a week)"
