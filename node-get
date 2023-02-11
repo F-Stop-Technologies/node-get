@@ -1,0 +1,61 @@
+#!/bin/bash
+
+function node-get-system-upgrade {
+  sudo apt update
+  sudo apt upgrade -y
+}
+
+function node-get-flatpak-add {
+  sudo flatpak install -y $1
+}
+
+function node-get-flatpak-remove {
+  sudo flatpak uninstall -y $1
+}
+
+function node-get-add-flathub {
+  sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+}
+
+function node-get-apt-add {
+  sudo apt install -y $1
+}
+
+function node-get-apt-remove {
+  sudo apt remove -y $1
+}
+
+if [ $# -eq 0 ]; then
+  echo "node-get: Pseudo-Package Manager for F-Stop Linux"
+  echo "Usage: node-get <command> <package>"
+  echo "Commands:"
+  echo "  system-upgrade   upgrade system packages using apt upgrade"
+  echo "  apt-add          install a package using apt install"
+  echo "  apt-remove       remove a package using apt remove"
+  echo "  flatpak-add      install a flatpak app"
+  echo "  flatpak-remove   remove a flatpak app"
+  echo "  add-flathub      add the Flathub repository to Flatpak"
+  exit 1
+fi
+
+if [ ! "$(command -v flatpak)" ]; then
+  echo "Error: flatpak not found. Installing..."
+  sudo apt install flatpak -y
+fi
+
+if [ "$1" = "system-upgrade" ]; then
+  node-get-system-upgrade
+elif [ "$1" = "flatpak-add" ]; then
+  node-get-flatpak-add $2
+elif [ "$1" = "flatpak-remove" ]; then
+  node-get-flatpak-remove $2
+elif [ "$1" = "add-flathub" ]; then
+  node-get-add-flathub
+elif [ "$1" = "apt-add" ]; then
+  node-get-apt-add $2
+elif [ "$1" = "apt-remove" ]; then
+  node-get-apt-remove $2
+else
+  echo "Error: Unrecognized command"
+  exit 1
+fi
