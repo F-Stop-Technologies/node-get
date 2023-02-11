@@ -1,7 +1,3 @@
-sudo rm /usr/bin/nvidia-easyinstall
-sudo wget -O /usr/bin/nvidia-easyinstall https://raw.githubusercontent.com/F-Stop-Technologies/nvidia-installer/main/nvidia-easyinstall
-sudo chmod +x /usr/bin/nvidia-easyinstall
-
 sudo rm -rf /fstop-wallpapers/  || echo "Wallpapers not installed yet, not reinstalling but installing."
 sudo git clone https://github.com/F-Stop-Technologies/wallpapers /fstop-wallpapers/
 sudo chmod -R 777 /fstop-wallpapers
@@ -28,8 +24,3 @@ sudo wget -O /fstop-spacy-nlp/spacy-nlp.py https://raw.githubusercontent.com/F-S
 sudo -u $USER pip3 install spacy --break-system-packages || echo "Error installing spacy, you will not be able to use nlp!"
 python -m spacy download en_core_web_sm || echo "Error installing spacy en_core_web_sm, you will not be able to use nlp!"
 python -m spacy download en || echo "Error installing spacy en, you will not be able to use nlp!"
-
-flatpak update -y # update all flatpaks
-snap refresh # update all snaps
-  
-echo "Done!"
