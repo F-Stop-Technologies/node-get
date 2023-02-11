@@ -6,11 +6,11 @@ function node-get-system-upgrade {
 }
 
 function node-get-flatpak-add {
-  sudo flatpak install -y $1
+  echo "Function removed, you shouldn't be here."
 }
 
 function node-get-flatpak-remove {
-  sudo flatpak uninstall -y $1
+  echo "Function removed, you shouldn't be here."
 }
 
 function node-get-add-flathub {
