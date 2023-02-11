@@ -1,2 +1,2 @@
 # node-get
-Pseudo-PackageManager for F-Stop Mint
+Package Manager Front-End for F-Stop Mint
