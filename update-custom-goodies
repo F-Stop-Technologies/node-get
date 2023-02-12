@@ -22,5 +22,7 @@ sudo rm -rf /fstop-spacy-nlp/ || echo "NLP not installed yet, not reinstalling b
 sudo mkdir /fstop-spacy-nlp/
 sudo wget -O /fstop-spacy-nlp/spacy-nlp.py https://raw.githubusercontent.com/F-Stop-Technologies/spacy-nlp/main/spacy-nlp.py
 sudo -u $USER pip3 install spacy --break-system-packages || echo "Error installing spacy, you will not be able to use nlp!"
-python3 -m spacy download en_core_web_sm || echo "Error installing spacy en_core_web_sm, you will not be able to use nlp!"
-python3 -m spacy download en || echo "Error installing spacy en, you will not be able to use nlp!"
+#python3 -m spacy download en_core_web_sm || echo "Error installing spacy en_core_web_sm, you will not be able to use nlp!"
+#python3 -m spacy download en || echo "Error installing spacy en, you will not be able to use nlp!"
+
+sudo apt install python3-full
