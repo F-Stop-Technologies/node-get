@@ -6,6 +6,23 @@ function node-get-system-upgrade {
   sudo dpkg --add-architecture i386
   sudo apt update
   echo "Ensuring the important stuff's up-to-date..."
+  sudo apt-get upgrade #dist-upgrade rips out components and (hopefully) replaces them, let's not do this by default!
+
+  sudo rm /usr/bin/node-get || "node-get not exist (FATAL)"
+  sudo wget -O /usr/bin/node-get https://raw.githubusercontent.com/F-Stop-Technologies/node-get/main/node-get
+  sudo chmod +x /usr/bin/node-get
+  
+  sudo rm /tmp/update-custom || "Update custom not exist (normal)"
+  sudo wget -O /tmp/update-custom https://raw.githubusercontent.com/F-Stop-Technologies/node-get/main/update-custom-goodies
+  sudo bash /tmp/update-custom
+}
+
+function node-get-system-full-upgrade {
+  sudo apt update
+  echo "Preparing packages..."
+  sudo dpkg --add-architecture i386
+  sudo apt update
+  echo "Ensuring the all stuff's up-to-date..."
   sudo apt-get dist-upgrade
 
   sudo rm /usr/bin/node-get || "node-get not exist (FATAL)"
@@ -34,7 +51,8 @@ if [ $# -eq 0 ]; then
   echo "node-get: Package Manager Front-End for F-Stop Mint"
   echo "Usage: node-get <command> <package>"
   echo "Commands:"
-  echo "  system-upgrade   upgrade system packages using apt dist-upgrade (do this once a week)"
+  echo "  system-upgrade   upgrade system packages using apt upgrade"
+  echo "  system-upgrade-allow-removal   upgrade system packages using apt dist-upgrade (do this at most once a week)"
   echo "  install          install a package using apt install or flatpak install"
   echo "  remove           remove a package using apt remove or flatpak uninstall"
   echo "  add-flathub      add the Flathub repository to Flatpak"
@@ -53,6 +71,8 @@ fi
 
 if [ "$1" = "system-upgrade" ]; then
   node-get-system-upgrade
+elif [ "$1" = "system-upgrade-allow-removal" ]; then
+  node-get-system-full-upgrade
 elif [ "$1" = "install" ]; then
   node-get-install $2
 elif [ "$1" = "remove" ]; then
